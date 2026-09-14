@@ -1,236 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>Dashboard | Hogwarts Academy</title>
-
-    <link rel="stylesheet" href="style.css">
-
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
-
 <body>
-
     <header>
-
-        <h1>🏰 Hogwarts Academy</h1>
-
-        <p>School of Witchcraft and Wizardry</p>
-
+        <h1>
+            🏰 Hogwarts Academy
+        </h1>
+        <p>
+            School of Witchcraft and Wizardry
+        </p>
     </header>
-
-
     <main>
-
         <section class="dashboard">
-
             <h2 id="welcomeMessage">
                 Welcome to Hogwarts
             </h2>
-
             <p id="studentInfo">
                 First Year Student
             </p>
-
-
             <div class="dashboard-grid">
-
-
-                <button onclick="openSection('classes')">
-
+                <!-- CLASSES -->
+                <button
+                    onclick="openSection('classes')"
+                >
                     📚
-
                     <span>
                         Classes
                     </span>
-
                     <small>
                         Attend your Hogwarts lessons
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('assignments')">
-
+                <!-- ASSIGNMENTS -->
+                <button
+                    onclick="openSection('assignments')"
+                >
                     📝
-
                     <span>
                         Assignments
                     </span>
-
                     <small>
                         Complete your schoolwork
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('grades')">
-
+                <!-- GRADEBOOK -->
+                <button
+                    onclick="openSection('grades')"
+                >
                     🎓
-
                     <span>
                         Gradebook
                     </span>
-
                     <small>
                         View your academic progress
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('schedule')">
-
+                <!-- SCHEDULE -->
+                <button
+                    onclick="openSection('schedule')"
+                >
                     🗓️
-
                     <span>
                         Schedule
                     </span>
-
                     <small>
                         View your daily timetable
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('explore')">
-
+                <!-- EXPLORE -->
+                <button
+                    onclick="openSection('explore')"
+                >
                     🗺️
-
                     <span>
                         Explore Hogwarts
                     </span>
-
                     <small>
                         Visit locations around the castle
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('characters')">
-
+                <!-- CHARACTERS -->
+                <button
+                    onclick="openSection('characters')"
+                >
                     💬
-
                     <span>
                         Characters
                     </span>
-
                     <small>
                         Talk to other students
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('relationships')">
-
+                <!-- RELATIONSHIPS -->
+                <button
+                    onclick="openSection('relationships')"
+                >
                     ❤️
-
                     <span>
                         Relationships
                     </span>
-
                     <small>
                         See your friendships and connections
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('owlpost')">
-
+                <!-- OWL POST -->
+                <button
+                    onclick="openSection('owlpost')"
+                >
                     🦉
-
                     <span>
                         Owl Post
                     </span>
-
                     <small>
                         Check your messages
                     </small>
-
                 </button>
-
-
-                <button onclick="openSection('inventory')">
-
+                <!-- INVENTORY -->
+                <button
+                    onclick="openSection('inventory')"
+                >
                     🎒
-
                     <span>
                         Inventory
                     </span>
-
                     <small>
                         View your belongings
                     </small>
-
                 </button>
-
-
             </div>
-
         </section>
-
     </main>
-
-
     <footer>
-
         <p>
             Hogwarts Academy • School of Witchcraft and Wizardry
         </p>
-
     </footer>
-
-
     <script>
-
+        /* =========================================
+           STUDENT INFORMATION
+        ========================================= */
         const firstName =
-            localStorage.getItem("studentFirstName") || "Student";
-
+            localStorage.getItem("studentFirstName")
+            || "Student";
         const lastName =
-            localStorage.getItem("studentLastName") || "";
-
+            localStorage.getItem("studentLastName")
+            || "";
         const house =
-            localStorage.getItem("studentHouse") || "Unknown House";
-        const currentYear = parseInt(localStorage.getItem("currentYear")) || 1;
-
-
-        document.getElementById("welcomeMessage").textContent =
-            "Welcome, " + firstName + " " + lastName;
-
-
-        document.getElementById("studentInfo").textContent =
-    "Year " + currentYear + " • " + house;
-
-
+            localStorage.getItem("studentHouse")
+            || "Unknown House";
+        const currentYear =
+            parseInt(
+                localStorage.getItem("currentYear")
+            ) || 1;
+        /* =========================================
+           WELCOME MESSAGE
+        ========================================= */
+        document.getElementById(
+            "welcomeMessage"
+        ).textContent =
+            "Welcome, " +
+            firstName +
+            " " +
+            lastName;
+        /* =========================================
+           STUDENT YEAR + HOUSE
+        ========================================= */
+        document.getElementById(
+            "studentInfo"
+        ).textContent =
+            "Year " +
+            currentYear +
+            " • " +
+            house;
+        /* =========================================
+           DASHBOARD NAVIGATION
+        ========================================= */
         function openSection(section) {
-if (section === "classes") {
-    window.location.href = "classes.html";
-    return;
-}
-
-if (section === "schedule") {
-    window.location.href = "schedule.html";
-    return;
-}
-
-    alert(
-        section.charAt(0).toUpperCase() +
-        section.slice(1) +
-        " will be available soon!"
-    );
-}
-
+            /* CLASSES */
+            if (section === "classes") {
+                window.location.href =
+                    "classes.html";
+                return;
+            }
+            /* SCHEDULE */
+            if (section === "schedule") {
+                window.location.href =
+                    "schedule.html";
+                return;
+            }
+            /* OTHER FEATURES */
+            alert(
+                section.charAt(0).toUpperCase() +
+                section.slice(1) +
+                " will be available soon!"
+            );
+        }
     </script>
-
 </body>
-
 </html>
