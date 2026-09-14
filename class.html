@@ -61,8 +61,7 @@
                 </p>
 
                 <p id="classDescription">
-                    Master the art of magical charms and
-                    enchantments.
+                    Master the art of magical charms and enchantments.
                 </p>
 
             </div>
@@ -114,6 +113,27 @@
             </section>
 
 
+            <!-- QUIZZES -->
+
+            <section
+                id="quizSection"
+                class="course-section"
+            >
+
+                <h2>
+                    🧠 Quizzes
+                </h2>
+
+
+                <div
+                    id="quizList"
+                    class="course-list"
+                ></div>
+
+
+            </section>
+
+
             <!-- COURSEWORK -->
 
             <section class="course-section">
@@ -138,23 +158,6 @@
 
                         <small>
                             View assignments
-                        </small>
-
-                    </button>
-
-
-                    <button
-                        onclick="showComingSoon('Quizzes')"
-                    >
-
-                        🧠
-
-                        <span>
-                            Quizzes
-                        </span>
-
-                        <small>
-                            View quizzes
                         </small>
 
                     </button>
@@ -462,11 +465,6 @@
                     ) === "true";
 
 
-                const unlocked =
-                    lesson.number === 1 ||
-                    completed;
-
-
                 let statusText = "";
 
                 let buttonText = "";
@@ -562,6 +560,141 @@
 
 
         /* =========================================
+           QUIZ 01
+        ========================================= */
+
+
+        const quizList =
+            document.getElementById(
+                "quizList"
+            );
+
+
+        const lesson01Complete =
+            localStorage.getItem(
+                "charmsLesson01Complete"
+            ) === "true";
+
+
+        const quiz01Score =
+            localStorage.getItem(
+                "charmsQuiz01Score"
+            );
+
+
+        if (lesson01Complete) {
+
+
+            const quizCard =
+                document.createElement(
+                    "div"
+                );
+
+
+            quizCard.className =
+                "lesson-card";
+
+
+            let quizStatus = "Available";
+
+            let quizButton =
+                "Take Quiz";
+
+
+            if (quiz01Score !== null) {
+
+                quizStatus =
+                    "✓ Completed • " +
+                    quiz01Score +
+                    "%";
+
+                quizButton =
+                    "Review Quiz";
+
+            }
+
+
+            quizCard.innerHTML = `
+
+                <div class="lesson-card-info">
+
+                    <span class="lesson-number">
+                        Quiz 01
+                    </span>
+
+                    <strong>
+                        Introduction to Charms
+                    </strong>
+
+                    <small>
+                        📝 10 questions • Passing score 70%
+                    </small>
+
+                    <em>
+                        ${quizStatus}
+                    </em>
+
+                </div>
+
+
+                <button
+                    onclick="openQuiz()"
+                >
+
+                    ${quizButton}
+
+                </button>
+
+            `;
+
+
+            quizList.appendChild(
+                quizCard
+            );
+
+
+        }
+
+        else {
+
+
+            quizList.innerHTML = `
+
+                <div class="lesson-card">
+
+                    <div class="lesson-card-info">
+
+                        <span class="lesson-number">
+                            Quiz 01
+                        </span>
+
+                        <strong>
+                            Introduction to Charms
+                        </strong>
+
+                        <small>
+                            🔒 Complete Lesson 01 first
+                        </small>
+
+                        <em>
+                            🔒 Locked
+                        </em>
+
+                    </div>
+
+
+                    <button disabled>
+                        Locked
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================================
            OPEN LESSON
         ========================================= */
 
@@ -581,6 +714,30 @@
 
             alert(
                 "This lesson will be available soon!"
+            );
+
+        }
+
+
+        /* =========================================
+           OPEN QUIZ
+        ========================================= */
+
+
+        function openQuiz() {
+
+            if (classId === "charms") {
+
+                window.location.href =
+                    "quiz.html";
+
+                return;
+
+            }
+
+
+            alert(
+                "This quiz will be available soon!"
             );
 
         }
