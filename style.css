@@ -7,7 +7,8 @@
 body {
     min-height: 100vh;
     font-family: Georgia, "Times New Roman", serif;
-    background: #101018;
+    background:
+        radial-gradient(circle at top, #29243a 0%, #15131d 45%, #0c0b10 100%);
     color: #eee8d5;
     display: flex;
     flex-direction: column;
@@ -15,40 +16,52 @@ body {
 
 header {
     text-align: center;
-    padding: 45px 20px 35px;
-    background: #171521;
-    border-bottom: 1px solid #8d7a45;
+    padding: 35px 20px 25px;
+    background: rgba(12, 11, 16, 0.8);
+    border-bottom: 1px solid #9d8950;
 }
 
 header h1 {
-    font-size: 38px;
+    font-size: 34px;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 header p {
-    font-size: 16px;
     color: #c7bfa8;
+    font-size: 15px;
     letter-spacing: 1px;
 }
 
 main {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 20px;
+    width: 100%;
+    padding: 35px 20px;
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #817b70;
+    font-size: 12px;
+    border-top: 1px solid #302b38;
+}
+
+
+/* =========================
+   HOMEPAGE
+   ========================= */
 
 .welcome {
     width: 100%;
-    max-width: 600px;
-    text-align: center;
+    max-width: 650px;
+    margin: 80px auto;
     padding: 55px 30px;
-    background: #1b1924;
-    border: 1px solid #8d7a45;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    background: rgba(27, 25, 36, 0.95);
+    border: 1px solid #9d8950;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .welcome h2 {
@@ -61,16 +74,21 @@ main {
     margin-bottom: 30px;
 }
 
+
+/* =========================
+   BUTTONS
+   ========================= */
+
 button {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 16px;
+    font-size: 15px;
     color: #eee8d5;
     background: #302b3d;
     border: 1px solid #b09a5b;
-    border-radius: 6px;
-    padding: 13px 28px;
+    border-radius: 7px;
+    padding: 13px 22px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 button:hover {
@@ -78,9 +96,185 @@ button:hover {
     transform: translateY(-2px);
 }
 
-footer {
+
+/* =========================
+   CHARACTER CREATION
+   ========================= */
+
+.character-creation {
+    width: 100%;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 35px 25px;
+    background: rgba(27, 25, 36, 0.96);
+    border: 1px solid #9d8950;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.character-creation h2 {
     text-align: center;
-    padding: 20px;
-    color: #8f8979;
-    font-size: 13px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa395;
+    margin-bottom: 30px;
+}
+
+.character-creation form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.character-creation label {
+    margin-top: 10px;
+    color: #d8cda9;
+    font-size: 14px;
+}
+
+.character-creation input,
+.character-creation select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 6px;
+    border: 1px solid #50495d;
+    background: #111018;
+    color: #eee8d5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+}
+
+.character-creation input:focus,
+.character-creation select:focus {
+    outline: none;
+    border-color: #b09a5b;
+}
+
+.character-creation button {
+    margin-top: 25px;
+}
+
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.dashboard {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.dashboard h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+#studentInfo {
+    text-align: center;
+    color: #c8b77f;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.dashboard-grid button {
+    min-height: 150px;
+    padding: 22px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: rgba(27, 25, 36, 0.95);
+}
+
+.dashboard-grid button:first-line {
+    font-size: 30px;
+}
+
+.dashboard-grid span {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.dashboard-grid small {
+    color: #989184;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 25px 15px 20px;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .welcome {
+        margin: 45px auto;
+        padding: 40px 20px;
+    }
+
+    .welcome h2 {
+        font-size: 25px;
+    }
+
+    .dashboard h2 {
+        font-size: 27px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .dashboard-grid button {
+        min-height: 135px;
+        padding: 15px 8px;
+    }
+
+    .dashboard-grid span {
+        font-size: 15px;
+    }
+
+    .dashboard-grid small {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 420px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
