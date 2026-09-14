@@ -65,6 +65,7 @@
                 <h3>
                     📖 Lessons
                 </h3>
+                <!-- LESSON 01 -->
                 <div class="lesson-card">
                     <div>
                         <span class="lesson-number">
@@ -80,41 +81,48 @@
                         </p>
                     </div>
                     <button
+                        id="lesson01Button"
                         onclick="openLesson()"
                     >
                         Begin Lesson
                     </button>
                 </div>
-                <div class="lesson-card locked">
+                <!-- LESSON 02 -->
+                <div
+                    id="lesson02Card"
+                    class="lesson-card locked"
+                >
                     <div>
                         <span class="lesson-number">
                             Lesson 02
                         </span>
                         <h4>
-                            Unlocks After Lesson 01
+                            Magical Theory
                         </h4>
                         <p>
-                            Complete the previous lesson
-                            to continue your studies.
+                            Unlocks after completing
+                            Lesson 01.
                         </p>
                     </div>
                     <button
+                        id="lesson02Button"
                         disabled
                     >
                         🔒 Locked
                     </button>
                 </div>
+                <!-- LESSON 03 -->
                 <div class="lesson-card locked">
                     <div>
                         <span class="lesson-number">
                             Lesson 03
                         </span>
                         <h4>
-                            Unlocks After Lesson 02
+                            Spellcasting Technique
                         </h4>
                         <p>
-                            Continue progressing through
-                            your Charms course.
+                            Unlocks after completing
+                            Lesson 02.
                         </p>
                     </div>
                     <button
@@ -130,6 +138,7 @@
                     📝 Coursework
                 </h3>
                 <div class="coursework-grid">
+                    <!-- ASSIGNMENTS -->
                     <div class="coursework-card">
                         <div class="coursework-icon">
                             📝
@@ -147,6 +156,7 @@
                             View Assignments
                         </button>
                     </div>
+                    <!-- QUIZZES -->
                     <div class="coursework-card">
                         <div class="coursework-icon">
                             ❓
@@ -164,6 +174,7 @@
                             View Quizzes
                         </button>
                     </div>
+                    <!-- PRACTICAL -->
                     <div class="coursework-card">
                         <div class="coursework-icon">
                             🎯
@@ -183,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            <!-- BACK BUTTON -->
+            <!-- BACK -->
             <div class="back-area">
                 <button
                     onclick="goBack()"
@@ -200,7 +211,7 @@
     </footer>
     <script>
         /* =========================================
-           CLASS INFORMATION
+           CLASS DATA
         ========================================= */
         const classData = {
             charms: {
@@ -261,7 +272,7 @@
             }
         };
         /* =========================================
-           GET CLASS FROM URL
+           READ CLASS FROM URL
         ========================================= */
         const urlParams =
             new URLSearchParams(
@@ -270,9 +281,10 @@
         const classId =
             urlParams.get("class") || "charms";
         const currentClass =
-            classData[classId] || classData.charms;
+            classData[classId] ||
+            classData.charms;
         /* =========================================
-           DISPLAY CLASS INFORMATION
+           DISPLAY CLASS
         ========================================= */
         document.getElementById(
             "classIcon"
@@ -294,17 +306,76 @@
             currentClass.name +
             " | Hogwarts Academy";
         /* =========================================
-           BEGIN LESSON
+           COURSE PROGRESS
         ========================================= */
-        function openLesson() {
-            alert(
-                "Lesson 01: Introduction to " +
-                currentClass.name +
-                " will open soon!"
+        let progress = 0;
+        if (classId === "charms") {
+            progress =
+                parseInt(
+                    localStorage.getItem(
+                        "charmsProgress"
+                    )
+                ) || 0;
+        }
+        document.getElementById(
+            "courseProgress"
+        ).textContent =
+            progress + "%";
+        document.getElementById(
+            "progressFill"
+        ).style.width =
+            progress + "%";
+        /* =========================================
+           CHECK LESSON 01
+        ========================================= */
+        const lesson01Complete =
+            localStorage.getItem(
+                "charmsLesson01Complete"
             );
+        if (
+            classId === "charms" &&
+            lesson01Complete === "true"
+        ) {
+            const lesson01Button =
+                document.getElementById(
+                    "lesson01Button"
+                );
+            lesson01Button.textContent =
+                "✓ Completed";
+            lesson01Button.disabled =
+                true;
+            /* Unlock Lesson 02 */
+            const lesson02Card =
+                document.getElementById(
+                    "lesson02Card"
+                );
+            const lesson02Button =
+                document.getElementById(
+                    "lesson02Button"
+                );
+            lesson02Card.classList.remove(
+                "locked"
+            );
+            lesson02Button.disabled =
+                false;
+            lesson02Button.textContent =
+                "Begin Lesson";
+            lesson02Button.onclick =
+                function() {
+                    alert(
+                        "Lesson 02 will be available soon!"
+                    );
+                };
         }
         /* =========================================
-           COURSEWORK
+           OPEN LESSON 01
+        ========================================= */
+        function openLesson() {
+            window.location.href =
+                "lesson.html";
+        }
+        /* =========================================
+           COMING SOON
         ========================================= */
         function showComingSoon(section) {
             alert(
