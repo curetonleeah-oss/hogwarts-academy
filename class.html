@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Class | Hogwarts Academy</title>
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+<body>
+    <header>
+        <h1>
+            🏰 Hogwarts Academy
+        </h1>
+        <p>
+            School of Witchcraft and Wizardry
+        </p>
+    </header>
+    <main>
+        <section class="class-page">
+            <!-- CLASS HEADER -->
+            <div class="class-header">
+                <div
+                    id="classIcon"
+                    class="large-class-icon"
+                >
+                    ✨
+                </div>
+                <h2 id="className">
+                    Charms
+                </h2>
+                <p id="professorName">
+                    Professor Flitwick
+                </p>
+                <p id="classDescription">
+                    Learn the magical charms and enchantments
+                    used by witches and wizards.
+                </p>
+            </div>
+            <!-- COURSE PROGRESS -->
+            <div class="course-progress-card">
+                <div class="progress-heading">
+                    <strong>
+                        Course Progress
+                    </strong>
+                    <span id="courseProgress">
+                        0%
+                    </span>
+                </div>
+                <div class="progress-bar">
+                    <div
+                        id="progressFill"
+                        class="progress-fill"
+                        style="width: 0%;"
+                    ></div>
+                </div>
+            </div>
+            <!-- LESSONS -->
+            <div class="lesson-section">
+                <h3>
+                    📖 Lessons
+                </h3>
+                <div class="lesson-card">
+                    <div>
+                        <span class="lesson-number">
+                            Lesson 01
+                        </span>
+                        <h4>
+                            Introduction to Charms
+                        </h4>
+                        <p>
+                            Learn what charms are and how
+                            they differ from other branches
+                            of magic.
+                        </p>
+                    </div>
+                    <button
+                        onclick="openLesson()"
+                    >
+                        Begin Lesson
+                    </button>
+                </div>
+                <div class="lesson-card locked">
+                    <div>
+                        <span class="lesson-number">
+                            Lesson 02
+                        </span>
+                        <h4>
+                            Unlocks After Lesson 01
+                        </h4>
+                        <p>
+                            Complete the previous lesson
+                            to continue your studies.
+                        </p>
+                    </div>
+                    <button
+                        disabled
+                    >
+                        🔒 Locked
+                    </button>
+                </div>
+                <div class="lesson-card locked">
+                    <div>
+                        <span class="lesson-number">
+                            Lesson 03
+                        </span>
+                        <h4>
+                            Unlocks After Lesson 02
+                        </h4>
+                        <p>
+                            Continue progressing through
+                            your Charms course.
+                        </p>
+                    </div>
+                    <button
+                        disabled
+                    >
+                        🔒 Locked
+                    </button>
+                </div>
+            </div>
+            <!-- COURSEWORK -->
+            <div class="coursework-section">
+                <h3>
+                    📝 Coursework
+                </h3>
+                <div class="coursework-grid">
+                    <div class="coursework-card">
+                        <div class="coursework-icon">
+                            📝
+                        </div>
+                        <h4>
+                            Assignments
+                        </h4>
+                        <p>
+                            Complete written and practical
+                            assignments for this course.
+                        </p>
+                        <button
+                            onclick="showComingSoon('Assignments')"
+                        >
+                            View Assignments
+                        </button>
+                    </div>
+                    <div class="coursework-card">
+                        <div class="coursework-icon">
+                            ❓
+                        </div>
+                        <h4>
+                            Quizzes
+                        </h4>
+                        <p>
+                            Test your knowledge of the
+                            material you've learned.
+                        </p>
+                        <button
+                            onclick="showComingSoon('Quizzes')"
+                        >
+                            View Quizzes
+                        </button>
+                    </div>
+                    <div class="coursework-card">
+                        <div class="coursework-icon">
+                            🎯
+                        </div>
+                        <h4>
+                            Practical Work
+                        </h4>
+                        <p>
+                            Practice the spells and skills
+                            taught in your lessons.
+                        </p>
+                        <button
+                            onclick="showComingSoon('Practical Work')"
+                        >
+                            View Practical Work
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- BACK BUTTON -->
+            <div class="back-area">
+                <button
+                    onclick="goBack()"
+                >
+                    ← Back to Classes
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>
+            Hogwarts Academy • School of Witchcraft and Wizardry
+        </p>
+    </footer>
+    <script>
+        /* =========================================
+           CLASS INFORMATION
+        ========================================= */
+        const classData = {
+            charms: {
+                name: "Charms",
+                professor: "Professor Flitwick",
+                icon: "✨",
+                description:
+                    "Learn the magical charms and enchantments used by witches and wizards."
+            },
+            transfiguration: {
+                name: "Transfiguration",
+                professor: "Professor McGonagall",
+                icon: "🪄",
+                description:
+                    "Study the complex art of transforming objects and living things."
+            },
+            potions: {
+                name: "Potions",
+                professor: "Professor Snape",
+                icon: "🧪",
+                description:
+                    "Learn how to prepare magical potions using ingredients, precision, and technique."
+            },
+            herbology: {
+                name: "Herbology",
+                professor: "Professor Sprout",
+                icon: "🌿",
+                description:
+                    "Study magical plants, their properties, and how to care for them."
+            },
+            defense: {
+                name: "Defense Against the Dark Arts",
+                professor: "Professor Quirrell",
+                icon: "🛡️",
+                description:
+                    "Learn how to defend yourself against dangerous magical creatures and dark magic."
+            },
+            astronomy: {
+                name: "Astronomy",
+                professor: "Professor Sinistra",
+                icon: "🌙",
+                description:
+                    "Study the stars, planets, moons, and other celestial objects."
+            },
+            history: {
+                name: "History of Magic",
+                professor: "Professor Binns",
+                icon: "📜",
+                description:
+                    "Explore the history of witches, wizards, magical events, and the wizarding world."
+            },
+            flying: {
+                name: "Flying",
+                professor: "Madam Hooch",
+                icon: "🧹",
+                description:
+                    "Learn the fundamentals of broomstick flying and magical flight."
+            }
+        };
+        /* =========================================
+           GET CLASS FROM URL
+        ========================================= */
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+        const classId =
+            urlParams.get("class") || "charms";
+        const currentClass =
+            classData[classId] || classData.charms;
+        /* =========================================
+           DISPLAY CLASS INFORMATION
+        ========================================= */
+        document.getElementById(
+            "classIcon"
+        ).textContent =
+            currentClass.icon;
+        document.getElementById(
+            "className"
+        ).textContent =
+            currentClass.name;
+        document.getElementById(
+            "professorName"
+        ).textContent =
+            currentClass.professor;
+        document.getElementById(
+            "classDescription"
+        ).textContent =
+            currentClass.description;
+        document.title =
+            currentClass.name +
+            " | Hogwarts Academy";
+        /* =========================================
+           BEGIN LESSON
+        ========================================= */
+        function openLesson() {
+            alert(
+                "Lesson 01: Introduction to " +
+                currentClass.name +
+                " will open soon!"
+            );
+        }
+        /* =========================================
+           COURSEWORK
+        ========================================= */
+        function showComingSoon(section) {
+            alert(
+                section +
+                " for " +
+                currentClass.name +
+                " will be available soon!"
+            );
+        }
+        /* =========================================
+           BACK TO CLASSES
+        ========================================= */
+        function goBack() {
+            window.location.href =
+                "classes.html";
+        }
+    </script>
+</body>
+</html>
