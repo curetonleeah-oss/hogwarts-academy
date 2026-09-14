@@ -2,777 +2,586 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Charms | Hogwarts Academy</title>
 
-    <title>Class | Hogwarts Academy</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<header>
+    <h1>🏰 Hogwarts Academy</h1>
+    <p>School of Witchcraft and Wizardry</p>
+</header>
 
-    <header>
+<main>
 
-        <h1>
-            🏰 Hogwarts Academy
-        </h1>
+<section class="class-page">
 
-        <p>
-            School of Witchcraft and Wizardry
+    <div class="class-header">
+
+        <div class="class-icon">✨</div>
+
+        <h2>CHARMS</h2>
+
+        <p class="professor">
+            Professor Flitwick
         </p>
 
-    </header>
+        <p class="class-description">
+            Master the art of magical charms and enchantments.
+        </p>
+
+    </div>
 
 
-    <main>
+    <div class="course-progress">
 
-        <section class="class-container">
+        <div class="progress-header">
+
+            <strong>Course Progress</strong>
+
+            <span id="progressPercent">
+                25%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                id="progressFill"
+                class="progress-fill"
+                style="width: 25%;">
+            </div>
+
+        </div>
+
+    </div>
 
 
-            <!-- CLASS HEADER -->
+    <!-- LESSONS -->
 
-            <div class="class-header">
+    <div class="class-section">
 
-                <div
-                    id="classIcon"
-                    class="class-icon"
-                >
-                    ✨
-                </div>
+        <h3>📚 Lessons</h3>
 
-                <h2 id="className">
-                    Charms
-                </h2>
 
-                <p id="classProfessor">
-                    Professor Flitwick
+        <!-- LESSON 01 -->
+
+        <div class="lesson-card completed">
+
+            <div class="lesson-info">
+
+                <h4>
+                    Lesson 01
+                </h4>
+
+                <p>
+                    Introduction to Charms
                 </p>
 
-                <p id="classDescription">
-                    Master the art of magical charms and enchantments.
+                <small>
+                    ⏱️ 15–20 minutes
+                </small>
+
+            </div>
+
+            <div class="lesson-status">
+
+                <span class="completed-badge">
+                    ✓ Completed
+                </span>
+
+                <button onclick="openLesson(1)">
+                    Review Lesson
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- LESSON 02 -->
+
+        <div
+            id="lesson02Card"
+            class="lesson-card locked">
+
+            <div class="lesson-info">
+
+                <h4>
+                    Lesson 02
+                </h4>
+
+                <p>
+                    Magical Theory
                 </p>
+
+                <small>
+                    ⏱️ 20–25 minutes
+                </small>
+
+            </div>
+
+            <div
+                id="lesson02Status"
+                class="lesson-status">
+
+                <span class="locked-badge">
+                    🔒 Locked
+                </span>
+
+                <button disabled>
+                    Locked
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- LESSON 03 -->
+
+        <div class="lesson-card locked">
+
+            <div class="lesson-info">
+
+                <h4>
+                    Lesson 03
+                </h4>
+
+                <p>
+                    Spellcasting Technique
+                </p>
+
+                <small>
+                    ⏱️ 20–25 minutes
+                </small>
+
+            </div>
+
+            <div class="lesson-status">
+
+                <span class="locked-badge">
+                    🔒 Locked
+                </span>
+
+                <button disabled>
+                    Locked
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUIZZES -->
+
+    <div class="class-section">
+
+        <div class="section-heading">
+
+            <h3>🧠 Quizzes</h3>
+
+            <button onclick="openQuiz()">
+                View quizzes
+            </button>
+
+        </div>
+
+
+        <div class="quiz-card">
+
+            <div class="quiz-info">
+
+                <h4>
+                    Quiz 01
+                </h4>
+
+                <p>
+                    Introduction to Charms
+                </p>
+
+                <small>
+                    📝 10 questions •
+                    🎓 Passing score 70%
+                </small>
 
             </div>
 
 
-            <!-- PROGRESS -->
+            <div
+                id="quizStatus"
+                class="quiz-status">
 
-            <div class="course-progress">
+                <span>
+                    Available
+                </span>
 
-                <div class="progress-heading">
-
-                    <strong>
-                        Course Progress
-                    </strong>
-
-                    <span id="progressText">
-                        0%
-                    </span>
-
-                </div>
-
-                <div class="progress-bar">
-
-                    <div
-                        id="progressFill"
-                        class="progress-fill"
-                    ></div>
-
-                </div>
+                <button onclick="openQuiz()">
+                    Take Quiz
+                </button>
 
             </div>
 
+        </div>
 
-            <!-- LESSONS -->
-
-            <section class="course-section">
-
-                <h2>
-                    📚 Lessons
-                </h2>
+    </div>
 
 
-                <div
-                    id="lessonsList"
-                    class="course-list"
-                ></div>
+    <!-- COURSEWORK -->
+
+    <div class="class-section">
+
+        <h3>📝 Coursework</h3>
 
 
-            </section>
+        <div class="coursework-grid">
 
+            <button onclick="openAssignments()">
 
-            <!-- QUIZZES -->
+                📝
 
-            <section
-                id="quizSection"
-                class="course-section"
-            >
+                <span>
+                    Assignments
+                </span>
 
-                <h2>
-                    🧠 Quizzes
-                </h2>
+                <small>
+                    View assignments
+                </small>
 
-
-                <div
-                    id="quizList"
-                    class="course-list"
-                ></div>
-
-
-            </section>
-
-
-            <!-- COURSEWORK -->
-
-            <section class="course-section">
-
-                <h2>
-                    📝 Coursework
-                </h2>
-
-
-                <div class="coursework-grid">
-
-
-                    <button
-                        onclick="showComingSoon('Assignments')"
-                    >
-
-                        📝
-
-                        <span>
-                            Assignments
-                        </span>
-
-                        <small>
-                            View assignments
-                        </small>
-
-                    </button>
-
-
-                    <button
-                        onclick="showComingSoon('Practical Work')"
-                    >
-
-                        🪄
-
-                        <span>
-                            Practical Work
-                        </span>
-
-                        <small>
-                            Complete practical work
-                        </small>
-
-                    </button>
-
-
-                </div>
-
-            </section>
-
-
-            <button
-                class="back-button"
-                onclick="goBack()"
-            >
-                ← Back to Classes
             </button>
 
 
-        </section>
+            <button onclick="openPracticalWork()">
 
-    </main>
+                🪄
 
+                <span>
+                    Practical Work
+                </span>
 
-    <footer>
+                <small>
+                    Complete practical work
+                </small>
 
-        <p>
-            Hogwarts Academy • School of Witchcraft and Wizardry
-        </p>
+            </button>
 
-    </footer>
+        </div>
 
+    </div>
 
-    <script>
 
+    <div class="back-navigation">
 
-        /* =========================================
-           COURSE DATA
-        ========================================= */
+        <button onclick="goBack()">
+            ← Back to Classes
+        </button>
 
+    </div>
 
-        const classData = {
+</section>
 
-            charms: {
+</main>
 
-                name: "Charms",
 
-                icon: "✨",
+<footer>
 
-                professor: "Professor Flitwick",
+    <p>
+        Hogwarts Academy • School of Witchcraft and Wizardry
+    </p>
 
-                description:
-                    "Master the art of magical charms and enchantments."
+</footer>
 
-            },
 
-            transfiguration: {
+<script>
 
-                name: "Transfiguration",
+const lessonComplete =
+    localStorage.getItem(
+        "charmsLesson01Complete"
+    ) === "true";
 
-                icon: "🦋",
 
-                professor: "Professor McGonagall",
+const quizScore =
+    localStorage.getItem(
+        "charmsQuiz01Score"
+    );
 
-                description:
-                    "Learn the complex art of transforming objects and beings."
 
-            },
+const quizPassed =
+    localStorage.getItem(
+        "charmsQuiz01Passed"
+    ) === "true";
 
-            potions: {
 
-                name: "Potions",
+/*
+    COURSE PROGRESS
+*/
 
-                icon: "⚗️",
+function updateProgress() {
 
-                professor: "Professor Snape",
+    let progress = 0;
 
-                description:
-                    "Study magical ingredients and the creation of potions."
 
-            },
+    if (lessonComplete) {
 
-            herbology: {
+        progress = 10;
 
-                name: "Herbology",
+    }
 
-                icon: "🌿",
 
-                professor: "Professor Sprout",
+    if (quizPassed) {
 
-                description:
-                    "Study magical plants and their properties."
+        progress = 25;
 
-            },
+    }
 
-            defense: {
 
-                name: "Defense Against the Dark Arts",
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+        progress + "%";
 
-                icon: "🛡️",
 
-                professor: "Professor Quirrell",
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        progress + "%";
 
-                description:
-                    "Learn how to defend yourself against dark magic."
 
-            },
+    localStorage.setItem(
+        "charmsProgress",
+        progress
+    );
 
-            astronomy: {
+}
 
-                name: "Astronomy",
 
-                icon: "🌙",
+/*
+    QUIZ STATUS
+*/
 
-                professor: "Professor Sinistra",
+function updateQuizStatus() {
 
-                description:
-                    "Study the stars, planets, and magical effects of the night sky."
-
-            },
-
-            history: {
-
-                name: "History of Magic",
-
-                icon: "📜",
-
-                professor: "Professor Binns",
-
-                description:
-                    "Explore the history of the magical world."
-
-            },
-
-            flying: {
-
-                name: "Flying",
-
-                icon: "🧹",
-
-                professor: "Madam Hooch",
-
-                description:
-                    "Learn the fundamentals of broomstick flight."
-
-            }
-
-        };
-
-
-        /* =========================================
-           GET CLASS
-        ========================================= */
-
-
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        const classId =
-            params.get("class") || "charms";
-
-
-        const selectedClass =
-            classData[classId] ||
-            classData.charms;
-
-
-        /* =========================================
-           DISPLAY CLASS
-        ========================================= */
-
-
+    const quizStatus =
         document.getElementById(
-            "classIcon"
-        ).textContent =
-            selectedClass.icon;
-
-
-        document.getElementById(
-            "className"
-        ).textContent =
-            selectedClass.name;
-
-
-        document.getElementById(
-            "classProfessor"
-        ).textContent =
-            selectedClass.professor;
-
-
-        document.getElementById(
-            "classDescription"
-        ).textContent =
-            selectedClass.description;
-
-
-        /* =========================================
-           PROGRESS
-        ========================================= */
-
-
-        let progress = 0;
-
-
-        if (classId === "charms") {
-
-            progress =
-                parseInt(
-                    localStorage.getItem(
-                        "charmsProgress"
-                    )
-                ) || 0;
-
-        }
-
-
-        document.getElementById(
-            "progressText"
-        ).textContent =
-            progress + "%";
-
-
-        document.getElementById(
-            "progressFill"
-        ).style.width =
-            progress + "%";
-
-
-        /* =========================================
-           LESSON DATA
-        ========================================= */
-
-
-        const lessons = [
-
-            {
-                number: 1,
-                title: "Introduction to Charms",
-                time: "15–20 minutes"
-            },
-
-            {
-                number: 2,
-                title: "Magical Theory",
-                time: "20–25 minutes"
-            },
-
-            {
-                number: 3,
-                title: "Spellcasting Technique",
-                time: "20–25 minutes"
-            }
-
-        ];
-
-
-        /* =========================================
-           CREATE LESSONS
-        ========================================= */
-
-
-        const lessonsList =
-            document.getElementById(
-                "lessonsList"
-            );
-
-
-        lessons.forEach(
-            function(lesson) {
-
-
-                const card =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                card.className =
-                    "lesson-card";
-
-
-                const completed =
-                    lesson.number === 1 &&
-                    localStorage.getItem(
-                        "charmsLesson01Complete"
-                    ) === "true";
-
-
-                let statusText = "";
-
-                let buttonText = "";
-
-                let buttonAction = "";
-
-
-                if (completed) {
-
-                    statusText =
-                        "✓ Completed";
-
-                    buttonText =
-                        "Review Lesson";
-
-                    buttonAction =
-                        "openLesson()";
-
-                }
-
-                else if (lesson.number === 1) {
-
-                    statusText =
-                        "Available";
-
-                    buttonText =
-                        "Begin Lesson";
-
-                    buttonAction =
-                        "openLesson()";
-
-                }
-
-                else {
-
-                    statusText =
-                        "🔒 Locked";
-
-                    buttonText =
-                        "Locked";
-
-                    buttonAction =
-                        "";
-
-                }
-
-
-                card.innerHTML = `
-
-                    <div class="lesson-card-info">
-
-                        <span class="lesson-number">
-                            Lesson ${String(lesson.number).padStart(2, "0")}
-                        </span>
-
-                        <strong>
-                            ${lesson.title}
-                        </strong>
-
-                        <small>
-                            ⏱️ ${lesson.time}
-                        </small>
-
-                        <em>
-                            ${statusText}
-                        </em>
-
-                    </div>
-
-
-                    <button
-                        ${
-                            buttonAction
-                            ? `onclick="${buttonAction}"`
-                            : "disabled"
-                        }
-                    >
-
-                        ${buttonText}
-
-                    </button>
-
-                `;
-
-
-                lessonsList.appendChild(
-                    card
-                );
-
-
-            }
+            "quizStatus"
         );
 
 
-        /* =========================================
-           QUIZ 01
-        ========================================= */
+    if (quizScore !== null) {
+
+        const score =
+            parseInt(quizScore);
 
 
-        const quizList =
-            document.getElementById(
-                "quizList"
-            );
+        if (quizPassed) {
 
+            quizStatus.innerHTML = `
 
-        const lesson01Complete =
-            localStorage.getItem(
-                "charmsLesson01Complete"
-            ) === "true";
+                <span class="completed-badge">
+                    ✓ Completed • ${score}%
+                </span>
 
-
-        const quiz01Score =
-            localStorage.getItem(
-                "charmsQuiz01Score"
-            );
-
-
-        if (lesson01Complete) {
-
-
-            const quizCard =
-                document.createElement(
-                    "div"
-                );
-
-
-            quizCard.className =
-                "lesson-card";
-
-
-            let quizStatus = "Available";
-
-            let quizButton =
-                "Take Quiz";
-
-
-            if (quiz01Score !== null) {
-
-                quizStatus =
-                    "✓ Completed • " +
-                    quiz01Score +
-                    "%";
-
-                quizButton =
-                    "Review Quiz";
-
-            }
-
-
-            quizCard.innerHTML = `
-
-                <div class="lesson-card-info">
-
-                    <span class="lesson-number">
-                        Quiz 01
-                    </span>
-
-                    <strong>
-                        Introduction to Charms
-                    </strong>
-
-                    <small>
-                        📝 10 questions • Passing score 70%
-                    </small>
-
-                    <em>
-                        ${quizStatus}
-                    </em>
-
-                </div>
-
-
-                <button
-                    onclick="openQuiz()"
-                >
-
-                    ${quizButton}
-
+                <button onclick="openQuiz()">
+                    Review Quiz
                 </button>
 
             `;
 
+        } else {
 
-            quizList.appendChild(
-                quizCard
-            );
+            quizStatus.innerHTML = `
 
+                <span class="locked-badge">
+                    📚 Not Passed • ${score}%
+                </span>
 
-        }
-
-        else {
-
-
-            quizList.innerHTML = `
-
-                <div class="lesson-card">
-
-                    <div class="lesson-card-info">
-
-                        <span class="lesson-number">
-                            Quiz 01
-                        </span>
-
-                        <strong>
-                            Introduction to Charms
-                        </strong>
-
-                        <small>
-                            🔒 Complete Lesson 01 first
-                        </small>
-
-                        <em>
-                            🔒 Locked
-                        </em>
-
-                    </div>
-
-
-                    <button disabled>
-                        Locked
-                    </button>
-
-                </div>
+                <button onclick="openQuiz()">
+                    Retake Quiz
+                </button>
 
             `;
 
         }
 
+    } else {
 
-        /* =========================================
-           OPEN LESSON
-        ========================================= */
+        if (lessonComplete) {
 
+            quizStatus.innerHTML = `
 
-        function openLesson() {
+                <span>
+                    Available
+                </span>
 
+                <button onclick="openQuiz()">
+                    Take Quiz
+                </button>
 
-            if (classId === "charms") {
+            `;
 
-                window.location.href =
-                    "lesson.html";
+        } else {
 
-                return;
+            quizStatus.innerHTML = `
 
-            }
+                <span class="locked-badge">
+                    🔒 Locked
+                </span>
 
+                <button disabled>
+                    Locked
+                </button>
 
-            alert(
-                "This lesson will be available soon!"
-            );
-
-        }
-
-
-        /* =========================================
-           OPEN QUIZ
-        ========================================= */
-
-
-        function openQuiz() {
-
-            if (classId === "charms") {
-
-                window.location.href =
-                    "quiz.html";
-
-                return;
-
-            }
-
-
-            alert(
-                "This quiz will be available soon!"
-            );
+            `;
 
         }
 
+    }
 
-        /* =========================================
-           COURSEWORK
-        ========================================= */
-
-
-        function showComingSoon(section) {
-
-            alert(
-                section +
-                " will be available soon!"
-            );
-
-        }
+}
 
 
-        /* =========================================
-           BACK
-        ========================================= */
+/*
+    LESSON 02 UNLOCK
+*/
+
+function updateLesson02() {
+
+    const card =
+        document.getElementById(
+            "lesson02Card"
+        );
 
 
-        function goBack() {
-
-            window.location.href =
-                "classes.html";
-
-        }
+    const status =
+        document.getElementById(
+            "lesson02Status"
+        );
 
 
-    </script>
+    if (quizPassed) {
 
+        card.classList.remove(
+            "locked"
+        );
+
+        card.classList.add(
+            "unlocked"
+        );
+
+
+        status.innerHTML = `
+
+            <span class="completed-badge">
+                🔓 Unlocked
+            </span>
+
+            <button onclick="openLesson(2)">
+                Begin Lesson
+            </button>
+
+        `;
+
+    }
+
+}
+
+
+/*
+    OPEN LESSON
+*/
+
+function openLesson(lessonNumber) {
+
+    if (lessonNumber === 1) {
+
+        window.location.href =
+            "lesson.html";
+
+        return;
+
+    }
+
+
+    if (
+        lessonNumber === 2 &&
+        quizPassed
+    ) {
+
+        window.location.href =
+            "lesson02.html";
+
+        return;
+
+    }
+
+}
+
+
+/*
+    OPEN QUIZ
+*/
+
+function openQuiz() {
+
+    window.location.href =
+        "quiz.html";
+
+}
+
+
+/*
+    FUTURE COURSEWORK
+*/
+
+function openAssignments() {
+
+    alert(
+        "Assignments will be available soon!"
+    );
+
+}
+
+
+function openPracticalWork() {
+
+    alert(
+        "Practical work will be available soon!"
+    );
+
+}
+
+
+/*
+    NAVIGATION
+*/
+
+function goBack() {
+
+    window.location.href =
+        "classes.html";
+
+}
+
+
+/*
+    INITIALIZE
+*/
+
+updateProgress();
+
+updateQuizStatus();
+
+updateLesson02();
+
+</script>
 
 </body>
 
