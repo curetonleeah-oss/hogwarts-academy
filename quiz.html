@@ -1,945 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
-    <title>Quiz 01 | Charms | Hogwarts Academy</title>
-
+    <title>Classes | Hogwarts Academy</title>
     <link
         rel="stylesheet"
         href="style.css"
     >
-
+    <script src="curriculum.js"></script>
 </head>
-
-
 <body>
-
-
     <header>
-
         <h1>
             🏰 Hogwarts Academy
         </h1>
-
         <p>
             School of Witchcraft and Wizardry
         </p>
-
     </header>
-
-
     <main>
-
-        <section class="quiz-container">
-
-
-            <div class="quiz-header">
-
-                <div class="quiz-icon">
-                    ✨
-                </div>
-
-                <p class="quiz-course">
-                    CHARMS
-                </p>
-
+        <section class="classes-page">
+            <!-- PAGE HEADER -->
+            <div class="page-heading">
                 <h2>
-                    Quiz 01: Introduction to Charms
+                    📚 My Classes
                 </h2>
-
-                <p class="quiz-professor">
-                    Professor Flitwick
+                <p id="yearSubtitle">
+                    Your Hogwarts Curriculum
                 </p>
-
-                <div class="quiz-info">
-
-                    <span>
-                        📚 Lesson 01
-                    </span>
-
-                    <span>
-                        📝 10 Questions
-                    </span>
-
-                    <span>
-                        🎓 Passing Score: 70%
-                    </span>
-
-                </div>
-
             </div>
-
-
+            <!-- YEAR INFORMATION -->
+            <div class="year-status">
+                <strong id="yearName">
+                    Loading...
+                </strong>
+                <span id="classCount">
+                    Loading classes...
+                </span>
+            </div>
+            <!-- CLASS CARDS -->
             <div
-                id="quizContent"
-                class="quiz-content"
+                class="class-grid"
+                id="classGrid"
             >
-
-
-                <div class="quiz-instructions">
-
-                    <h3>
-                        Before You Begin
-                    </h3>
-
-                    <p>
-                        This quiz tests your understanding of
-                        Lesson 01: Introduction to Charms.
-                    </p>
-
-                    <p>
-                        Choose the best answer for each question.
-                        You must score at least 70% to pass.
-                    </p>
-
-                </div>
-
-
-                <form id="quizForm">
-
-
-                    <!-- QUESTION 1 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            1. What is a charm?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q1"
-                                value="a"
-                            >
-                            A spell that always changes an object's physical form.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q1"
-                                value="b"
-                            >
-                            A form of magic that changes properties or behavior without fundamentally changing what something is.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q1"
-                                value="c"
-                            >
-                            A potion that gives someone magical abilities.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q1"
-                                value="d"
-                            >
-                            A magical creature that lives at Hogwarts.
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 2 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            2. Which branch of magic focuses more on changing the form or nature of something?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q2"
-                                value="a"
-                            >
-                            Charms
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q2"
-                                value="b"
-                            >
-                            Astronomy
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q2"
-                                value="c"
-                            >
-                            Transfiguration
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q2"
-                                value="d"
-                            >
-                            Herbology
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 3 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            3. What can a charm change?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q3"
-                                value="a"
-                            >
-                            Only the color of an object.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q3"
-                                value="b"
-                            >
-                            Only the size of an object.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q3"
-                                value="c"
-                            >
-                            Properties, behavior, or abilities.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q3"
-                                value="d"
-                            >
-                            Nothing about an object.
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 4 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            4. Which of the following is important when performing magic?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q4"
-                                value="a"
-                            >
-                            Concentration
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q4"
-                                value="b"
-                            >
-                            Guessing
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q4"
-                                value="c"
-                            >
-                            Ignoring the wand movement
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q4"
-                                value="d"
-                            >
-                            Avoiding practice
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 5 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            5. What are two important parts of performing a spell correctly?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q5"
-                                value="a"
-                            >
-                            Wand movement and incantation
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q5"
-                                value="b"
-                            >
-                            Running and jumping
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q5"
-                                value="c"
-                            >
-                            Eating and sleeping
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q5"
-                                value="d"
-                            >
-                            Reading and drawing
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 6 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            6. True or False: New spells are usually mastered immediately.
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q6"
-                                value="a"
-                            >
-                            True
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q6"
-                                value="b"
-                            >
-                            False
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 7 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            7. Why is practice important when learning magic?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q7"
-                                value="a"
-                            >
-                            It helps students develop magical skill.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q7"
-                                value="b"
-                            >
-                            It makes lessons unnecessary.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q7"
-                                value="c"
-                            >
-                            It prevents students from learning spells.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q7"
-                                value="d"
-                            >
-                            It replaces concentration.
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 8 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            8. Which statement best describes the difference between Charms and Transfiguration?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q8"
-                                value="a"
-                            >
-                            They are exactly the same.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q8"
-                                value="b"
-                            >
-                            Charms generally alter properties or behavior, while Transfiguration focuses more on form or nature.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q8"
-                                value="c"
-                            >
-                            Charms only involves potions.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q8"
-                                value="d"
-                            >
-                            Transfiguration only involves plants.
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 9 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            9. What might happen if a witch or wizard loses concentration while casting a spell?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q9"
-                                value="a"
-                            >
-                            The spell may produce an unexpected result.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q9"
-                                value="b"
-                            >
-                            The spell automatically becomes perfect.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q9"
-                                value="c"
-                            >
-                            Nothing can happen.
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q9"
-                                value="d"
-                            >
-                            The wand disappears every time.
-                        </label>
-
-                    </div>
-
-
-                    <!-- QUESTION 10 -->
-
-                    <div class="quiz-question">
-
-                        <h3>
-                            10. According to Professor Flitwick's note, which qualities are essential for a successful Charms student?
-                        </h3>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q10"
-                                value="a"
-                            >
-                            Speed, strength, and confidence
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q10"
-                                value="b"
-                            >
-                            Precision, concentration, and patience
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q10"
-                                value="c"
-                            >
-                            Silence, secrecy, and bravery
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="q10"
-                                value="d"
-                            >
-                            Luck, speed, and imagination
-                        </label>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="submit-quiz"
-                    >
-                        📝 Submit Quiz
-                    </button>
-
-
-                </form>
-
-
             </div>
-
-
-            <!-- RESULTS -->
-
-            <div
-                id="quizResults"
-                class="quiz-results"
-                style="display: none;"
-            >
-
-                <div
-                    id="resultIcon"
-                    class="result-icon"
+            <!-- BACK -->
+            <div class="back-area">
+                <button
+                    onclick="goBack()"
                 >
-                    🎓
-                </div>
-
-                <h2 id="resultTitle">
-                    Quiz Complete
-                </h2>
-
-                <p
-                    id="resultScore"
-                    class="result-score"
-                >
-                </p>
-
-                <p
-                    id="resultMessage"
-                    class="result-message"
-                >
-                </p>
-
-                <div
-                    id="resultDetails"
-                    class="result-details"
-                >
-                </div>
-
-                <div class="result-buttons">
-
-                    <button
-                        onclick="returnToClass()"
-                    >
-                        ← Back to Charms
-                    </button>
-
-                    <button
-                        id="retryButton"
-                        onclick="location.reload()"
-                    >
-                        🔄 Retake Quiz
-                    </button>
-
-                </div>
-
+                    ← Back to Dashboard
+                </button>
             </div>
-
-
         </section>
-
     </main>
-
-
     <footer>
-
         <p>
             Hogwarts Academy • School of Witchcraft and Wizardry
         </p>
-
     </footer>
-
-
     <script>
-
-
         /* =========================================
-           QUIZ ANSWERS
+           CURRENT YEAR
         ========================================= */
-
-        const correctAnswers = {
-
-            q1: "b",
-            q2: "c",
-            q3: "c",
-            q4: "a",
-            q5: "a",
-            q6: "b",
-            q7: "a",
-            q8: "b",
-            q9: "a",
-            q10: "b"
-
-        };
-
-
-        /* =========================================
-           CHECK LESSON COMPLETION
-        ========================================= */
-
-        const lessonComplete =
-            localStorage.getItem(
-                "charmsLesson01Complete"
+        const currentYear =
+            parseInt(
+                localStorage.getItem("currentYear")
+            ) || 1;
+        const currentCurriculum =
+            getCurriculumForYear(
+                currentYear
             );
-
-
-        if (lessonComplete !== "true") {
-
-            document.getElementById(
-                "quizContent"
-            ).innerHTML = `
-
-                <div class="quiz-locked">
-
-                    <div class="locked-icon">
-                        🔒
-                    </div>
-
-                    <h2>
-                        Quiz Locked
-                    </h2>
-
-                    <p>
-                        You must complete Lesson 01:
-                        Introduction to Charms before
-                        taking this quiz.
-                    </p>
-
-                    <button onclick="returnToLesson()">
-                        ← Return to Lesson
-                    </button>
-
-                </div>
-
-            `;
-
-        }
-
-
         /* =========================================
-           SUBMIT QUIZ
+           PAGE ELEMENTS
         ========================================= */
-
-        document
-            .getElementById("quizForm")
-            .addEventListener(
-                "submit",
-                function(event) {
-
-                    event.preventDefault();
-
-
-                    let score = 0;
-
-                    let answered = 0;
-
-
-                    for (
-                        let question in correctAnswers
-                    ) {
-
-                        const selected =
-                            document.querySelector(
-                                `input[name="${question}"]:checked`
-                            );
-
-
-                        if (selected) {
-
-                            answered++;
-
-
-                            if (
-                                selected.value ===
-                                correctAnswers[question]
-                            ) {
-
-                                score++;
-
-                            }
-
+        const yearName =
+            document.getElementById(
+                "yearName"
+            );
+        const yearSubtitle =
+            document.getElementById(
+                "yearSubtitle"
+            );
+        const classCount =
+            document.getElementById(
+                "classCount"
+            );
+        const classGrid =
+            document.getElementById(
+                "classGrid"
+            );
+        /* =========================================
+           YEAR INFORMATION
+        ========================================= */
+        yearName.textContent =
+            currentCurriculum.name;
+        yearSubtitle.textContent =
+            currentCurriculum.name +
+            " Curriculum";
+        /* =========================================
+           GET CLASSES
+        ========================================= */
+        const coreClasses =
+            currentCurriculum.core || [];
+        const specialClasses =
+            currentCurriculum.special || [];
+        const allClasses =
+            [
+                ...coreClasses,
+                ...specialClasses
+            ];
+        /* =========================================
+           CLASS COUNT
+        ========================================= */
+        classCount.textContent =
+            allClasses.length +
+            (
+                allClasses.length === 1
+                    ? " Class"
+                    : " Classes"
+            );
+        /* =========================================
+           CLASS ICONS
+        ========================================= */
+        function getClassIcon(classId) {
+            const icons = {
+                charms: "✨",
+                transfiguration: "🪄",
+                potions: "🧪",
+                herbology: "🌿",
+                defense: "🛡️",
+                astronomy: "🌙",
+                history: "📜",
+                flying: "🧹",
+                apparition: "🌀"
+            };
+            return icons[classId] || "📚";
+        }
+        /* =========================================
+           CREATE CLASS CARDS
+        ========================================= */
+        allClasses.forEach(
+            function(course) {
+                const card =
+                    document.createElement(
+                        "article"
+                    );
+                card.className =
+                    "class-card";
+                let progress = 0;
+                /*
+                    Currently only Charms has
+                    real lesson progress.
+                */
+                if (
+                    course.id === "charms"
+                ) {
+                    progress =
+                        parseInt(
+                            localStorage.getItem(
+                                "charmsProgress"
+                            )
+                        ) || 0;
+                }
+                card.innerHTML = `
+                    <div class="class-icon">
+                        ${getClassIcon(course.id)}
+                    </div>
+                    <h3>
+                        ${course.name}
+                    </h3>
+                    <p class="professor">
+                        ${course.professor}
+                    </p>
+                    <p class="class-description">
+                        Your
+                        ${currentCurriculum.name.toLowerCase()}
+                        course in
+                        ${course.name}.
+                    </p>
+                    <div class="class-progress">
+                        <span>
+                            Course Progress
+                        </span>
+                        <strong>
+                            ${progress}%
+                        </strong>
+                    </div>
+                    <div class="progress-bar">
+                        <div
+                            class="progress-fill"
+                            style="width: ${progress}%;">
+                        </div>
+                    </div>
+                    <button
+                        onclick="enterClass('${course.id}')"
+                    >
+                        ${
+                            progress > 0
+                                ? "Continue Class"
+                                : "Enter Class"
                         }
-
-                    }
-
-
-                    /* REQUIRE EVERY QUESTION */
-
-                    if (answered < 10) {
-
-                        alert(
-                            "Please answer all 10 questions before submitting your quiz."
+                    </button>
+                `;
+                classGrid.appendChild(
+                    card
+                );
+            }
+        );
+        /* =========================================
+           ELECTIVES
+        ========================================= */
+        const selectedElectives =
+            JSON.parse(
+                localStorage.getItem(
+                    "selectedElectives"
+                )
+            ) || [];
+        if (
+            selectedElectives.length > 0 &&
+            currentYear >= 3
+        ) {
+            selectedElectives.forEach(
+                function(elective) {
+                    const card =
+                        document.createElement(
+                            "article"
                         );
-
-                        return;
-
-                    }
-
-
-                    const percentage =
-                        score * 10;
-
-
-                    const passed =
-                        percentage >= 70;
-
-
-                    /* SAVE RESULT */
-
-                    localStorage.setItem(
-                        "charmsQuiz01Score",
-                        percentage
-                    );
-
-                    localStorage.setItem(
-                        "charmsQuiz01Passed",
-                        passed
-                    );
-
-
-                    /* UPDATE PROGRESS */
-
-                    if (passed) {
-
-                        localStorage.setItem(
-                            "charmsProgress",
-                            "25"
-                        );
-
-                    }
-
-
-                    /* HIDE QUIZ */
-
-                    document.getElementById(
-                        "quizContent"
-                    ).style.display = "none";
-
-
-                    /* SHOW RESULTS */
-
-                    const results =
-                        document.getElementById(
-                            "quizResults"
-                        );
-
-                    results.style.display =
-                        "block";
-
-
-                    document.getElementById(
-                        "resultScore"
-                    ).textContent =
-                        score +
-                        " / 10 • " +
-                        percentage +
-                        "%";
-
-
-                    const resultTitle =
-                        document.getElementById(
-                            "resultTitle"
-                        );
-
-                    const resultMessage =
-                        document.getElementById(
-                            "resultMessage"
-                        );
-
-                    const resultIcon =
-                        document.getElementById(
-                            "resultIcon"
-                        );
-
-
-                    if (passed) {
-
-                        resultIcon.textContent =
-                            "🎉";
-
-                        resultTitle.textContent =
-                            "Quiz Passed!";
-
-                        resultMessage.textContent =
-                            "Excellent work! You have demonstrated a solid understanding of the fundamentals of Charms.";
-
-                    } else {
-
-                        resultIcon.textContent =
-                            "📚";
-
-                        resultTitle.textContent =
-                            "Keep Practicing";
-
-                        resultMessage.textContent =
-                            "You didn't reach the passing score this time. Review Lesson 01 and try again.";
-
-                    }
-
-
-                    /* DETAILS */
-
-                    document.getElementById(
-                        "resultDetails"
-                    ).innerHTML = `
-
-                        <div>
-                            <strong>Score</strong>
-                            <span>
-                                ${percentage}%
-                            </span>
+                    card.className =
+                        "class-card";
+                    card.innerHTML = `
+                        <div class="class-icon">
+                            📖
                         </div>
-
-                        <div>
-                            <strong>Questions Correct</strong>
+                        <h3>
+                            ${elective}
+                        </h3>
+                        <p class="professor">
+                            Elective Course
+                        </p>
+                        <p class="class-description">
+                            Your chosen elective
+                            course.
+                        </p>
+                        <div class="class-progress">
                             <span>
-                                ${score} / 10
+                                Course Progress
                             </span>
+                            <strong>
+                                0%
+                            </strong>
                         </div>
-
-                        <div>
-                            <strong>Status</strong>
-                            <span>
-                                ${
-                                    passed
-                                    ? "Passed"
-                                    : "Not Passed"
-                                }
-                            </span>
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill"
+                                style="width: 0%;">
+                            </div>
                         </div>
-
+                        <button
+                            onclick="enterElective('${elective}')"
+                        >
+                            Enter Class
+                        </button>
                     `;
-
-
-                    /* ONLY SHOW RETRY IF NEEDED */
-
-                    document.getElementById(
-                        "retryButton"
-                    ).style.display =
-                        passed
-                        ? "none"
-                        : "inline-block";
-
+                    classGrid.appendChild(
+                        card
+                    );
                 }
             );
-
-
+        }
         /* =========================================
-           NAVIGATION
+           ENTER CLASS
         ========================================= */
-
-        function returnToClass() {
-
+        function enterClass(classId) {
             window.location.href =
-                "class.html?class=charms";
-
+                "class.html?class=" +
+                encodeURIComponent(
+                    classId
+                );
         }
-
-
-        function returnToLesson() {
-
+        /* =========================================
+           ENTER ELECTIVE
+        ========================================= */
+        function enterElective(
+            electiveName
+        ) {
+            alert(
+                electiveName +
+                " will be available soon!"
+            );
+        }
+        /* =========================================
+           BACK TO DASHBOARD
+        ========================================= */
+        function goBack() {
             window.location.href =
-                "lesson.html";
-
+                "dashboard.html";
         }
-
-
     </script>
-
-
 </body>
-
 </html>
