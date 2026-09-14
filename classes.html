@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes | Hogwarts Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🏰 Hogwarts Academy</h1>
+        <p>School of Witchcraft and Wizardry</p>
+    </header>
+
+    <main>
+
+        <section class="classes-page">
+
+            <div class="page-heading">
+                <h2>📚 My Classes</h2>
+                <p>First Year Curriculum</p>
+            </div>
+
+            <div class="year-status">
+                <strong>First Year</strong>
+                <span>7 Core Subjects</span>
+            </div>
+
+            <div class="class-grid">
+
+                <!-- CHARMS -->
+                <article class="class-card">
+                    <div class="class-icon">✨</div>
+                    <h3>Charms</h3>
+                    <p class="professor">Professor Flitwick</p>
+                    <p class="class-description">
+                        Learn the principles and practical applications of magical charms.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('Charms')">
+                        Enter Class
+                    </button>
+                </article>
+
+                <!-- TRANSFIGURATION -->
+                <article class="class-card">
+                    <div class="class-icon">🪄</div>
+                    <h3>Transfiguration</h3>
+                    <p class="professor">Professor McGonagall</p>
+                    <p class="class-description">
+                        Study the complex art of changing the form and appearance of objects.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('Transfiguration')">
+                        Enter Class
+                    </button>
+                </article>
+
+                <!-- POTIONS -->
+                <article class="class-card">
+                    <div class="class-icon">🧪</div>
+                    <h3>Potions</h3>
+                    <p class="professor">Professor Snape</p>
+                    <p class="class-description">
+                        Learn potion ingredients, preparation techniques, and magical properties.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('Potions')">
+                        Enter Class
+                    </button>
+                </article>
+
+                <!-- HERBOLOGY -->
+                <article class="class-card">
+                    <div class="class-icon">🌿</div>
+                    <h3>Herbology</h3>
+                    <p class="professor">Professor Sprout</p>
+                    <p class="class-description">
+                        Study magical plants, their properties, and how they are safely handled.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('Herbology')">
+                        Enter Class
+                    </button>
+                </article>
+
+                <!-- DEFENSE AGAINST THE DARK ARTS -->
+                <article class="class-card">
+                    <div class="class-icon">🛡️</div>
+                    <h3>Defense Against the Dark Arts</h3>
+                    <p class="professor">Professor Quirrell</p>
+                    <p class="class-description">
+                        Learn defensive magical techniques and how to recognize magical threats.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('Defense Against the Dark Arts')">
+                        Enter Class
+                    </button>
+                </article>
+
+                <!-- ASTRONOMY -->
+                <article class="class-card">
+                    <div class="class-icon">🌙</div>
+                    <h3>Astronomy</h3>
+                    <p class="professor">Professor Sinistra</p>
+                    <p class="class-description">
+                        Study the night sky, celestial objects, and their relationship to magic.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('Astronomy')">
+                        Enter Class
+                    </button>
+                </article>
+
+                <!-- HISTORY OF MAGIC -->
+                <article class="class-card">
+                    <div class="class-icon">📜</div>
+                    <h3>History of Magic</h3>
+                    <p class="professor">Professor Binns</p>
+                    <p class="class-description">
+                        Explore important events, people, and developments throughout magical history.
+                    </p>
+
+                    <div class="class-progress">
+                        <span>Course Progress</span>
+                        <strong>0%</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <button onclick="enterClass('History of Magic')">
+                        Enter Class
+                    </button>
+                </article>
+
+            </div>
+
+            <div class="back-area">
+                <button onclick="goBack()">← Back to Dashboard</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Hogwarts Academy • School of Witchcraft and Wizardry</p>
+    </footer>
+
+    <script>
+        function enterClass(className) {
+            alert(className + " lessons will be available soon!");
+        }
+
+        function goBack() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+
+</body>
+</html>
