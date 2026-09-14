@@ -211,14 +211,17 @@
 
 
         function openSection(section) {
+    if (section === "classes") {
+        window.location.href = "classes.html";
+        return;
+    }
 
-            alert(
-                section.charAt(0).toUpperCase() +
-                section.slice(1) +
-                " will be available soon!"
-            );
-
-        }
+    alert(
+        section.charAt(0).toUpperCase() +
+        section.slice(1) +
+        " will be available soon!"
+    );
+}
 
     </script>
 
