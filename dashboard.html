@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Hogwarts Academy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🏰 Hogwarts Academy</h1>
+
+        <p>School of Witchcraft and Wizardry</p>
+
+    </header>
+
+
+    <main>
+
+        <section class="dashboard">
+
+            <h2 id="welcomeMessage">
+                Welcome to Hogwarts
+            </h2>
+
+            <p id="studentInfo">
+                First Year Student
+            </p>
+
+
+            <div class="dashboard-grid">
+
+
+                <button onclick="openSection('classes')">
+
+                    📚
+
+                    <span>
+                        Classes
+                    </span>
+
+                    <small>
+                        Attend your Hogwarts lessons
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('assignments')">
+
+                    📝
+
+                    <span>
+                        Assignments
+                    </span>
+
+                    <small>
+                        Complete your schoolwork
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('grades')">
+
+                    🎓
+
+                    <span>
+                        Gradebook
+                    </span>
+
+                    <small>
+                        View your academic progress
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('schedule')">
+
+                    🗓️
+
+                    <span>
+                        Schedule
+                    </span>
+
+                    <small>
+                        View your daily timetable
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('explore')">
+
+                    🗺️
+
+                    <span>
+                        Explore Hogwarts
+                    </span>
+
+                    <small>
+                        Visit locations around the castle
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('characters')">
+
+                    💬
+
+                    <span>
+                        Characters
+                    </span>
+
+                    <small>
+                        Talk to other students
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('relationships')">
+
+                    ❤️
+
+                    <span>
+                        Relationships
+                    </span>
+
+                    <small>
+                        See your friendships and connections
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('owlpost')">
+
+                    🦉
+
+                    <span>
+                        Owl Post
+                    </span>
+
+                    <small>
+                        Check your messages
+                    </small>
+
+                </button>
+
+
+                <button onclick="openSection('inventory')">
+
+                    🎒
+
+                    <span>
+                        Inventory
+                    </span>
+
+                    <small>
+                        View your belongings
+                    </small>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Hogwarts Academy • School of Witchcraft and Wizardry
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const firstName =
+            localStorage.getItem("studentFirstName") || "Student";
+
+        const lastName =
+            localStorage.getItem("studentLastName") || "";
+
+        const house =
+            localStorage.getItem("studentHouse") || "Unknown House";
+
+
+        document.getElementById("welcomeMessage").textContent =
+            "Welcome, " + firstName + " " + lastName;
+
+
+        document.getElementById("studentInfo").textContent =
+            "First Year • " + house;
+
+
+        function openSection(section) {
+
+            alert(
+                section.charAt(0).toUpperCase() +
+                section.slice(1) +
+                " will be available soon!"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
