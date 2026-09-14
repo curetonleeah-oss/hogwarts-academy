@@ -2,200 +2,301 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
     <title>Classes | Hogwarts Academy</title>
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
     <script src="curriculum.js"></script>
 </head>
 <body>
     <header>
-        <h1>🏰 Hogwarts Academy</h1>
-        <p>School of Witchcraft and Wizardry</p>
+        <h1>
+            🏰 Hogwarts Academy
+        </h1>
+        <p>
+            School of Witchcraft and Wizardry
+        </p>
     </header>
     <main>
         <section class="classes-page">
+            <!-- PAGE HEADER -->
             <div class="page-heading">
-                <h2>📚 My Classes</h2>
-                <p id="yearSubtitle">Your Hogwarts Curriculum</p>
+                <h2>
+                    📚 My Classes
+                </h2>
+                <p id="yearSubtitle">
+                    Your Hogwarts Curriculum
+                </p>
             </div>
+            <!-- YEAR INFORMATION -->
             <div class="year-status">
-                <strong id="yearName">Loading...</strong>
-                <span id="classCount">Loading classes...</span>
+                <strong id="yearName">
+                    Loading...
+                </strong>
+                <span id="classCount">
+                    Loading classes...
+                </span>
             </div>
-            <div class="class-grid" id="classGrid">
-                <!-- Classes are created automatically by JavaScript -->
+            <!-- CLASS CARDS -->
+            <div
+                class="class-grid"
+                id="classGrid"
+            >
             </div>
+            <!-- BACK -->
             <div class="back-area">
-                <button onclick="goBack()">← Back to Dashboard</button>
+                <button
+                    onclick="goBack()"
+                >
+                    ← Back to Dashboard
+                </button>
             </div>
         </section>
     </main>
     <footer>
-        <p>Hogwarts Academy • School of Witchcraft and Wizardry</p>
+        <p>
+            Hogwarts Academy • School of Witchcraft and Wizardry
+        </p>
     </footer>
     <script>
-        // Get the student's current Hogwarts year
+        /* =========================================
+           CURRENT YEAR
+        ========================================= */
         const currentYear =
-            parseInt(localStorage.getItem("currentYear")) || 1;
-        // Get the curriculum for that year
+            parseInt(
+                localStorage.getItem("currentYear")
+            ) || 1;
         const currentCurriculum =
-            getCurriculumForYear(currentYear);
-        // Page elements
+            getCurriculumForYear(
+                currentYear
+            );
+        /* =========================================
+           PAGE ELEMENTS
+        ========================================= */
         const yearName =
-            document.getElementById("yearName");
+            document.getElementById(
+                "yearName"
+            );
         const yearSubtitle =
-            document.getElementById("yearSubtitle");
+            document.getElementById(
+                "yearSubtitle"
+            );
         const classCount =
-            document.getElementById("classCount");
+            document.getElementById(
+                "classCount"
+            );
         const classGrid =
-            document.getElementById("classGrid");
-        // Display year information
+            document.getElementById(
+                "classGrid"
+            );
+        /* =========================================
+           YEAR INFORMATION
+        ========================================= */
         yearName.textContent =
             currentCurriculum.name;
         yearSubtitle.textContent =
-            currentCurriculum.name + " Curriculum";
-        // Combine core classes and special classes
+            currentCurriculum.name +
+            " Curriculum";
+        /* =========================================
+           GET CLASSES
+        ========================================= */
         const coreClasses =
             currentCurriculum.core || [];
         const specialClasses =
             currentCurriculum.special || [];
         const allClasses =
-            [...coreClasses, ...specialClasses];
-        // Display number of classes
+            [
+                ...coreClasses,
+                ...specialClasses
+            ];
+        /* =========================================
+           CLASS COUNT
+        ========================================= */
         classCount.textContent =
             allClasses.length +
-            (allClasses.length === 1 ? " Class" : " Classes");
-        // Create a card for every class
-        allClasses.forEach(function(course) {
-            const card =
-                document.createElement("article");
-            card.className =
-                "class-card";
-            // Choose an icon
-            let icon = "📚";
-            if (course.id === "charms") {
-                icon = "✨";
-            }
-            else if (course.id === "transfiguration") {
-                icon = "🪄";
-            }
-            else if (course.id === "potions") {
-                icon = "🧪";
-            }
-            else if (course.id === "herbology") {
-                icon = "🌿";
-            }
-            else if (course.id === "defense") {
-                icon = "🛡️";
-            }
-            else if (course.id === "astronomy") {
-                icon = "🌙";
-            }
-            else if (course.id === "history") {
-                icon = "📜";
-            }
-            else if (course.id === "flying") {
-                icon = "🧹";
-            }
-            // Create the class card
-            card.innerHTML = `
-                <div class="class-icon">
-                    ${icon}
-                </div>
-                <h3>
-                    ${course.name}
-                </h3>
-                <p class="professor">
-                    ${course.professor}
-                </p>
-                <p class="class-description">
-                    Your ${currentCurriculum.name.toLowerCase()}
-                    course in ${course.name}.
-                </p>
-                <div class="class-progress">
-                    <span>
-                        Course Progress
-                    </span>
-                    <strong>
-                        0%
-                    </strong>
-                </div>
-                <div class="progress-bar">
-                    <div
-                        class="progress-fill"
-                        style="width: 0%;">
-                    </div>
-                </div>
-                <button
-                    onclick="enterClass('${course.id}')">
-                    Enter Class
-                </button>
-            `;
-            classGrid.appendChild(card);
-        });
-        // Display electives if the student has them
-        const selectedElectives =
-            JSON.parse(
-                localStorage.getItem("selectedElectives")
-            ) || [];
-        if (
-            selectedElectives.length > 0 &&
-            currentYear >= 3
-        ) {
-            selectedElectives.forEach(function(elective) {
+            (
+                allClasses.length === 1
+                    ? " Class"
+                    : " Classes"
+            );
+        /* =========================================
+           CLASS ICONS
+        ========================================= */
+        function getClassIcon(classId) {
+            const icons = {
+                charms: "✨",
+                transfiguration: "🪄",
+                potions: "🧪",
+                herbology: "🌿",
+                defense: "🛡️",
+                astronomy: "🌙",
+                history: "📜",
+                flying: "🧹",
+                apparition: "🌀"
+            };
+            return icons[classId] || "📚";
+        }
+        /* =========================================
+           CREATE CLASS CARDS
+        ========================================= */
+        allClasses.forEach(
+            function(course) {
                 const card =
-                    document.createElement("article");
+                    document.createElement(
+                        "article"
+                    );
                 card.className =
                     "class-card";
+                let progress = 0;
+                /*
+                    Currently only Charms has
+                    real lesson progress.
+                */
+                if (
+                    course.id === "charms"
+                ) {
+                    progress =
+                        parseInt(
+                            localStorage.getItem(
+                                "charmsProgress"
+                            )
+                        ) || 0;
+                }
                 card.innerHTML = `
                     <div class="class-icon">
-                        📖
+                        ${getClassIcon(course.id)}
                     </div>
                     <h3>
-                        ${elective}
+                        ${course.name}
                     </h3>
                     <p class="professor">
-                        Elective Course
+                        ${course.professor}
                     </p>
                     <p class="class-description">
-                        Your chosen elective course.
+                        Your
+                        ${currentCurriculum.name.toLowerCase()}
+                        course in
+                        ${course.name}.
                     </p>
                     <div class="class-progress">
                         <span>
                             Course Progress
                         </span>
                         <strong>
-                            0%
+                            ${progress}%
                         </strong>
                     </div>
                     <div class="progress-bar">
                         <div
                             class="progress-fill"
-                            style="width: 0%;">
+                            style="width: ${progress}%;">
                         </div>
                     </div>
                     <button
-                        onclick="enterElective('${elective}')">
-                        Enter Class
+                        onclick="enterClass('${course.id}')"
+                    >
+                        ${
+                            progress > 0
+                                ? "Continue Class"
+                                : "Enter Class"
+                        }
                     </button>
                 `;
-                classGrid.appendChild(card);
-            });
-        }
-        // Enter a normal class
-        function enterClass(classId) {
-            alert(
-                "This course will open soon!"
+                classGrid.appendChild(
+                    card
+                );
+            }
+        );
+        /* =========================================
+           ELECTIVES
+        ========================================= */
+        const selectedElectives =
+            JSON.parse(
+                localStorage.getItem(
+                    "selectedElectives"
+                )
+            ) || [];
+        if (
+            selectedElectives.length > 0 &&
+            currentYear >= 3
+        ) {
+            selectedElectives.forEach(
+                function(elective) {
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+                    card.className =
+                        "class-card";
+                    card.innerHTML = `
+                        <div class="class-icon">
+                            📖
+                        </div>
+                        <h3>
+                            ${elective}
+                        </h3>
+                        <p class="professor">
+                            Elective Course
+                        </p>
+                        <p class="class-description">
+                            Your chosen elective
+                            course.
+                        </p>
+                        <div class="class-progress">
+                            <span>
+                                Course Progress
+                            </span>
+                            <strong>
+                                0%
+                            </strong>
+                        </div>
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill"
+                                style="width: 0%;">
+                            </div>
+                        </div>
+                        <button
+                            onclick="enterElective('${elective}')"
+                        >
+                            Enter Class
+                        </button>
+                    `;
+                    classGrid.appendChild(
+                        card
+                    );
+                }
             );
         }
-        // Enter an elective
-        function enterElective(electiveName) {
+        /* =========================================
+           ENTER CLASS
+        ========================================= */
+        function enterClass(classId) {
+            window.location.href =
+                "class.html?class=" +
+                encodeURIComponent(
+                    classId
+                );
+        }
+        /* =========================================
+           ENTER ELECTIVE
+        ========================================= */
+        function enterElective(
+            electiveName
+        ) {
             alert(
                 electiveName +
-                " will open soon!"
+                " will be available soon!"
             );
         }
-        // Return to dashboard
+        /* =========================================
+           BACK TO DASHBOARD
+        ========================================= */
         function goBack() {
             window.location.href =
                 "dashboard.html";
