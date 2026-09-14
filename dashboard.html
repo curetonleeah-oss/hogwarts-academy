@@ -200,6 +200,7 @@
 
         const house =
             localStorage.getItem("studentHouse") || "Unknown House";
+        const currentYear = parseInt(localStorage.getItem("currentYear")) || 1;
 
 
         document.getElementById("welcomeMessage").textContent =
@@ -207,7 +208,7 @@
 
 
         document.getElementById("studentInfo").textContent =
-            "First Year • " + house;
+    "Year " + currentYear + " • " + house;
 
 
         function openSection(section) {
