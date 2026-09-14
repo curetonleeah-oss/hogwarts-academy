@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Your Character | Hogwarts Academy</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🏰 Hogwarts Academy</h1>
+        <p>School of Witchcraft and Wizardry</p>
+    </header>
+
+    <main>
+
+        <section class="character-creation">
+
+            <h2>Create Your Student</h2>
+
+            <p class="subtitle">
+                Before your first day at Hogwarts, tell us a little about yourself.
+            </p>
+
+            <form id="characterForm">
+
+                <label for="firstName">First Name</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    placeholder="Enter your first name"
+                    required
+                >
+
+                <label for="lastName">Last Name</label>
+                <input
+                    type="text"
+                    id="lastName"
+                    placeholder="Enter your last name"
+                    required
+                >
+
+                <label for="pronouns">Pronouns</label>
+                <input
+                    type="text"
+                    id="pronouns"
+                    placeholder="Example: she/her"
+                >
+
+                <label for="birthday">Birthday</label>
+                <input
+                    type="date"
+                    id="birthday"
+                >
+
+                <label for="house">Hogwarts House</label>
+
+                <select id="house" required>
+
+                    <option value="">Choose your house</option>
+
+                    <option value="Gryffindor">
+                        🦁 Gryffindor
+                    </option>
+
+                    <option value="Hufflepuff">
+                        🦡 Hufflepuff
+                    </option>
+
+                    <option value="Ravenclaw">
+                        🦅 Ravenclaw
+                    </option>
+
+                    <option value="Slytherin">
+                        🐍 Slytherin
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Begin My Hogwarts Journey
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Hogwarts Academy • School of Witchcraft and Wizardry</p>
+    </footer>
+
+    <script>
+
+        document.getElementById("characterForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const pronouns = document.getElementById("pronouns").value;
+            const birthday = document.getElementById("birthday").value;
+            const house = document.getElementById("house").value;
+
+            localStorage.setItem("studentFirstName", firstName);
+            localStorage.setItem("studentLastName", lastName);
+            localStorage.setItem("studentPronouns", pronouns);
+            localStorage.setItem("studentBirthday", birthday);
+            localStorage.setItem("studentHouse", house);
+
+            window.location.href = "dashboard.html";
+
+        });
+
+    </script>
+
+</body>
+</html>
